@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #cont{
+            
+            margin: 0 450px;
+            padding: 20px;
+         }
+         h1{
+            text-align: center;
+
+         }
+         #main{
+            
+            margin: 0 50px;
+            padding: 20px;
+            background-color: aquamarine;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+         }
+         #keyboard{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 8px;
+         margin-top: 20px;
+
+         }
+         button{
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700s;
+            cursor: pointer;
+            
+         }
+         button:hover{
+            background-color: burlywood;
+            border: none;
+         }
+        #display{
+            width: 100%;
+            margin: auto;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            font-size: 30px;
+            font-weight: 800PX;
+            text-align: center;
+        }
+
+         
+    </style>
+</head>
+<body>
+    <div id="cont">
+        
+        <div id="main">
+            <!-- <h1 id="display">display</h1> -->
+            <input type="number" id="display">
+        <div id="keyboard">
+            
+            <!-- <button  class="keypad">1</button>
+            <button class="keypad">2</button>
+            <button class="keypad">3</button>
+            <button class="operater">+</button>
+            <button class="keypad">4</button>
+            <button class="keypad">5</button>
+            <button class="keypad">6</button>
+            <button class="operater">-</button>
+            <button class="keypad">7</button>
+            <button class="keypad">8</button>
+            <button class="keypad">9</button>
+            <button class="operater">*</button>
+            
+            <button class="keypad">0</button> -->
+            
+            
+            
+            
+            <button class="operater">.</button>
+            <button id="equal">=</button>
+            <button class="operater">/</button>
+            <button style="color: aliceblue;background-color: red;" id="clear">C</button>
+        
+         </div>
+            
+  </div>
+    
+</body>
+
+</html>
+<script>
+    // let key=document.querySelectorAll(".keypad")
+    let operater=document.querySelectorAll(".operater")
+    let display=document.getElementById("display")
+    // let equal=document.getElementById("equal")
+    // let firstnumber="";
+    // let secondnumber="" ;  
+    //  let isfirstnumber=true;
+     let opt="";
+     clear=document.getElementById("clear")
+     equal.addEventListener("click",function(){
+        display.value=calculate(firstnumber,secondnumber,opt)
+     })
+     clear.addEventListener("click",function(){
+        display.value = 0;
+    firstnumber = "";
+    secondnumber = "";
+    opt = "";
+    isfirstnumber = true;
+     })
+     
+    for (let i=0 ;i<key.length;i++){
+        key[i].addEventListener("click",function(){
+            if(isfirstnumber==true){
+                firstnumber+=key[i].innerText
+            display.value=firstnumber
+            }
+            else{
+                secondnumber+=key[i].innerText
+            display.value=secondnumber
+            } 
+            // console.log(secondnumber)  
+        })
+    }
+    for(let i=0;i<operater.length;i++){
+        operater[i].addEventListener("click",function(){
+            isfirstnumber=false
+            opt=operater[i].innerText
+           
+        })
+        
+    }
+    function calculate(firstnumber,secondnumber,opt){
+     switch(opt)
+     {
+        case "+":
+        return Number(firstnumber)+Number(secondnumber)
+        case "-":
+        return Number(firstnumber)-Number(secondnumber)
+        case "/":
+        return Number(firstnumber)/Number(secondnumber)
+        case "*":
+        return Number(firstnumber)*Number(secondnumber)
+     }
+    }
+    
+</script>
