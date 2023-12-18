@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grand_parent{
+            
+            border: 2px solid red;
+            height: 700px;
+            width: 500px;
+            margin: auto;
+            
+        }
+        .parent{
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            justify-content: space-evenly;
+            
+        }
+        .parent>div>input{
+            width: 100px;
+            height: 75px;
+        }
+        #score>input{
+            width: 250px;
+            height: 50px;
+           
+        }
+        #score{
+            justify-content: center;
+            padding-left: 25%;
+        }
+        #score>h1{
+            padding-left: 25%;
+        }
+        #keyboard{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 30px;
+            margin: auto;
+            width: 50%;
+            margin-top: 20px;
+            padding-left: 25px;
+           
+        }
+        #keyboard>button{
+            width: 50px;
+            height: 50px;
+            
+        }
+        
+        
+        #but{
+              
+        }
+        #enter{
+            margin: auto;
+            width: 100px;
+            height:50px;
+            margin-top: 30pxs;
+        }
+        #but{
+            margin-left: 35%;
+            width: 175px;
+            height: 50px;
+            margin-top: 20px;
+        }
+        #butt{
+            
+            margin-left: 145%;
+        }
+    </style>
+</head>
+<body>
+    <div id="grand_parent">
+        <div class="parent">
+            <div>
+                <input type="number" value="35" id="min">
+                <h1>Min</h1>
+            </div>
+            <div>
+                <input type="number" value="200" id="max">
+                <h1>Max</h1>
+            </div>
+
+        </div>
+        <div id="score">
+            <h1>score</h1>
+            <input type="number" id="result">
+        </div>
+        <div id="keyboard">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button id="butt">0</button>
+        </div>
+        <button id="but">ENTER</button>
+    </div>
+</body>
+</html>
+<script>
+min=document.getElementById("min")
+max=document.getElementById("max")
+result=document.getElementById("result")
+
+let key= document.querySelectorAll("#keyboard > button")
+for(let i=0;i<key.length;i++){
+    key[i].addEventListener("click",function(){
+        result.value += key[i].innerText
+    })
+}
+document.getElementById("but").addEventListener("click",function(){
+    if(Number(result.value)<Number(min.value)){
+        min.value=result.value
+    }
+    
+})
+    
+document.getElementById("but").addEventListener("click",function(){
+    if(Number(result.value)>Number(max.value)){
+        max.value=result.value
+    }
+    
+})
+
+</script>
